@@ -58,13 +58,15 @@ public class App {
 		for (int i = 0; i < courses.size(); ++i) {
 			if (!flags.get(i))
 				explore.push(courses.get(i));
+			flags.set(i, false);
 		}
 		while (!explore.empty()) {
 			Course course = explore.top();
 			explore.pop();
+			int j = courses.find(course);
+			if (flags.get(j)) continue;
 			Stack<Course> stack = new Stack<Course>();
 			generateStack(course, stack, explore, stacks);
-			stacks.insertBack(stack);
 		}
 		return stacks;
 	}
@@ -82,7 +84,7 @@ public class App {
 			for (int i = 0; i < conditions.size(); ++i) {
 				ArrayList<Course> requirements = conditions.get(i).getCourses();
 				for (int j = 0; j < requirements.size(); ++j) {
-					explore.push(requirements.get(j));
+					explore.insert(requirements.get(j));
 					//requirement j shouldnt be pushed if it was already explored
 				}
 			}
