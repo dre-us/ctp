@@ -1,4 +1,4 @@
-package com.unal.ctm;
+package com.unal.ctp;
 
 import static org.junit.Assert.assertTrue;
 
