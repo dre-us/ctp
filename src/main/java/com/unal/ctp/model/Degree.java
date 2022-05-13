@@ -69,4 +69,15 @@ public class Degree {
 		Degree degree = (Degree) obj;
 		return this.getId().equals(degree.getId());
 	}
+
+	public void findCourse(Course course){
+		int indexCourse = this.courses.find(course);
+		if(indexCourse == -1) System.out.println("Asignatura no encontrada");
+		else{
+			Course searchedCourse = this.courses.get(indexCourse);
+			System.out.println(searchedCourse.toString());
+		}
+		
+
+	}
 }

@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import com.unal.ctp.datastructures.*;
 import com.unal.ctp.model.*;
+import java.util.Scanner;
 
 public class App {
 
@@ -34,9 +35,10 @@ public class App {
 		}
 		degree.update();
 		ArrayList<Stack<Course>> ans = generateStacks(degree);
-		System.out.println(degree.toString());
-		System.out.println(ans.toString());
+		//System.out.println(degree.toString());
+		//System.out.println(ans.toString());
 		System.out.println(ans.size());
+		functionalities(degree);
 	}
 
 	private ArrayList<Stack<Course>> generateStacks(Degree degree) {
@@ -89,5 +91,27 @@ public class App {
 				}
 			}
 		}
+	}
+
+	private void functionalities(Degree degree){
+		System.out.println("Seleccione a continuación que desea hacer");
+		System.out.println("1. Consultar asignatura");
+		System.out.println("2. Creador de mallas");
+		System.out.println("3. Editor de mallas");
+
+		Scanner scanner = new Scanner(System.in);
+		int choice = scanner.nextInt();
+		
+
+		if (choice == 1){
+			System.out.println("Escriba el codigo de la asignatura a buscar");
+			Course courseSearched = new Course(scanner.next());
+			System.out.println(" ");
+			degree.findCourse(courseSearched);
+		}
+		else
+			System.out.println("Función aún no disponible");
+		scanner.close();
+
 	}
 }
