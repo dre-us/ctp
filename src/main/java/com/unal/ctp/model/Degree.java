@@ -1,6 +1,6 @@
 package com.unal.ctp.model;
 
-import com.unal.ctp.data_structures.*;
+import com.unal.ctp.datastructures.*;
 
 public class Degree {
 
@@ -32,6 +32,10 @@ public class Degree {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public ArrayList<Course> getCourses() {
+		return this.courses;
 	}
 
 	public boolean insertCourse(Course course) {

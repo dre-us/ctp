@@ -63,7 +63,7 @@ public class ArrayList<T> {
 	public T getBack() {
 		if (this.empty())
 			throw new RuntimeException("List is empty.");
-		return this.get(this.size());
+		return this.get(this.size() - 1);
 	}
 
 	public void deleteBack() {

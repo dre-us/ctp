@@ -27,6 +27,7 @@ public class ArrayList<T> {
     }
 
     public boolean insert(T obj){
+	if (find(obj) != -1) return false;
         if(capacity.length-actualSize <= 5) {
 		increaseListSize();
         }
@@ -47,6 +48,10 @@ public class ArrayList<T> {
         }
         actualSize--;
 	return true;
+    }
+
+    public void delete(int idx) {
+	actualSize--;
     }
 
     public int size(){

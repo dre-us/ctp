@@ -1,27 +1,31 @@
 package com.unal.ctp.data_structures;
 
-public class Stack extends ArrayList{
+public class Stack<T> extends ArrayList<T> {
+
+	public Stack() {
+
+	}
 
 	public int obtainSize() {
 		return super.size();
 	}
 
-	public Object peek() {
-		return get(obtainSize() -1);
+	public T peek() {
+		return super.get(obtainSize() -1);
 	}
 
-	public Object pop() {
-		Object p = get(obtainSize() -1);
-		remove(obtainSize() -1);
+	public T pop() {
+		T p = super.get(obtainSize() -1);
+		super.delete(obtainSize() -1);
 		return p;
 	}
 
-	public Object push(Object p) {
+	public T push(T p) {
 		super.insert(p);
 		return p;
 	}
 
-	public void print(Stack p) {
+	public void print(Stack<T> p) {
 		while (!empty()) {
 			System.out.println((p.peek()));
 			p.pop();
@@ -29,11 +33,11 @@ public class Stack extends ArrayList{
 	}
 
 	public static void main (String[] args){
-		Stack stack = new Stack();
-		stack.push ("Uno");
-		stack.push ("dos");
-		stack.push ("tres");
-		stack.push ("cuatro");
+		Stack<String> stack = new Stack<String>();
+		stack.push("Uno");
+		stack.push("dos");
+		stack.push("tres");
+		stack.push("cuatro");
 		System.out.println(stack.obtainSize());
 		System.out.println(stack.peek());
 		System.out.println(stack.pop());

@@ -1,5 +1,5 @@
 package com.unal.ctp.model;
-import com.unal.ctp.data_structures.*;
+import com.unal.ctp.datastructures.*;
 
 public class Course {
 
