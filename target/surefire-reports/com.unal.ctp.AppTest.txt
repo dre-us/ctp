@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.unal.ctp.AppTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in com.unal.ctp.AppTest
+=======
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in com.unal.ctp.AppTest
+>>>>>>> main
