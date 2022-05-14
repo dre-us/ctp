@@ -101,7 +101,7 @@ public class App {
 
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
-		
+
 
 		if (choice == 1){
 			System.out.println("Escriba el codigo de la asignatura a buscar");
