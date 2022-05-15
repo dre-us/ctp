@@ -10,6 +10,12 @@ import java.util.Scanner;
 
 public class App {
 
+	private ArrayList<Degree> degrees;
+
+	public App() {
+		degrees = new ArrayList<Degree>();
+	}
+
 	public static void main(String[] args) throws IOException {
 		App app = new App();
 		app.input();
@@ -34,11 +40,7 @@ public class App {
 			degree.insertCourse(course);
 		}
 		degree.update();
-		ArrayList<Stack<Course>> ans = generateStacks(degree);
-		//System.out.println(degree.toString());
-		//System.out.println(ans.toString());
-		System.out.println(ans.size());
-		functionalities(degree);
+		degrees.insertBack(degree);
 	}
 
 	private ArrayList<Stack<Course>> generateStacks(Degree degree) {
@@ -124,6 +126,23 @@ public class App {
 		return pensums;
 	}
 
+	private boolean isValidPensum(ArrayList<Stack<Course>> stacks) {
+		boolean flag = true;
+		for (int i = 0; i < stacks.size(); ++i)
+			flag = flag && !stacks.get(i).empty();
+		return flag;
+	}
+
+	private boolean isValidSemester(ArrayList<Semester> courses) {
+		int creditsPerSemester = 0;
+		for (int i = 0; i < courses.size(); ++i)
+			creditsPerSemester += courses.get(i).getCredits();
+		return 10 <= creditsPerSemester && creditsPerSemester <= 20;
+	}
+
+	private boolean isValidCourse(Course course, ArrayList<Course> semester, Pensum pensum) {
+		return semester.find(course) == -1 && !pensum.contains(course);
+	}
 
 	private void generatePensum(ArrayList<Stack<Course>> stacks, int i, int semester, ArrayList<Course> curr_semester, Pensum pensum, ArrayList<Pensum> pensums) {
 		if (i == stacks.size()) {
