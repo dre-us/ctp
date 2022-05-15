@@ -121,7 +121,7 @@ public class App {
 		ArrayList<Stack<Course>> stacks = generateStacks(degree);
 		ArrayList<Course> curr_semester = new ArrayList<Course>();
 		Pensum pensum = new Pensum();
-		ArrayList<Pensum> pensums = new ArryList<Pensum>();
+		ArrayList<Pensum> pensums = new ArrayList<Pensum>();
 		generatePensum(stacks, 0, 1, curr_semester, pensum, pensums);
 		return pensums;
 	}
@@ -133,7 +133,7 @@ public class App {
 		return flag;
 	}
 
-	private boolean isValidSemester(ArrayList<Semester> courses) {
+	private boolean isValidSemester(ArrayList<Course> courses) {
 		int creditsPerSemester = 0;
 		for (int i = 0; i < courses.size(); ++i)
 			creditsPerSemester += courses.get(i).getCredits();
@@ -148,13 +148,12 @@ public class App {
 		if (i == stacks.size()) {
 			if (semester > 20) {
 				return;
-			} else if (this.isValidPensum(pensum)) {
-				pensums.insertBack(pensum);
-				//crear metodos para realizar una copia de pensum, agregarlo por referencia es un error.
+			} else if (this.isValidPensum(stacks)) {
+				pensums.insertBack(pensum.copy());
 			} else if (this.isValidSemester(curr_semester)) {
 				pensum.insertSemester(curr_semester);
 				generatePensum(stacks, 0, semester + 1, new ArrayList<Course>(), pensum, pensums);
-				pensum.deleteBack();
+				pensum.removeBack();
 			}
 		} else {
 			while (stacks.get(i).empty()) ++i;
@@ -167,7 +166,7 @@ public class App {
 					stacks.get(i).pop();
 					curr_semester.insertBack(course);
 					generatePensum(stacks, i+1, semester, curr_semester, pensum, pensums);
-					curr_semester.removeBack();
+					curr_semester.deleteBack();
 					stacks.get(i).push(course);
 				} else {
 					stacks.get(i).pop();
