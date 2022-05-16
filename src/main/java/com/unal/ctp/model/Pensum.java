@@ -4,6 +4,7 @@ import com.unal.ctp.datastructures.*;
 
 public class Pensum {
 
+	public static Integer cont = 0;
 	private	ArrayList<Course> courses;
 	private ArrayList<Integer> credits;
 

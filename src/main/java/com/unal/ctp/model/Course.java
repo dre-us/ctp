@@ -18,11 +18,13 @@ public class Course {
 	}
 
 	public Course(String id) {
+		this.setCredits(3);
 		this.setId(id);
 		this.conditions = new ArrayList<Condition>();
 	}
 
 	public Course() {
+		this.setCredits(3);
 		this.conditions = new ArrayList<Condition>();
 	}
 

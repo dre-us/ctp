@@ -180,5 +180,6 @@ public class ArrayList<T> {
 		this.array = newArray;
 		this.start = 0;
 		this.end = this.size();
+		this.capacity *= 2;
 	}
 }
