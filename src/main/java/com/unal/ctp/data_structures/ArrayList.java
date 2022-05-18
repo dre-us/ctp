@@ -1,7 +1,5 @@
 package com.unal.ctp.data_structures;
 
-import java.util.Arrays;
-
 public class ArrayList<T> {
 
     private T[] capacity;

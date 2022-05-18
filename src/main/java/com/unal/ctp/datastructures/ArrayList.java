@@ -2,12 +2,16 @@ package com.unal.ctp.datastructures;
 
 public class ArrayList<T> {
 
-	private static final int N = 100;
+	private static final int N = 10;
+	public static int countGet = 0;
+	public static int countInsert = 0;
+	public static int countFind = 0;
 
 	private int length;
 	private int start;
 	private int end;
 	private int capacity;
+	private boolean dynamic;
 	private T[] array;
 
 	public ArrayList(int capacity) {
@@ -15,11 +19,13 @@ public class ArrayList<T> {
 		this.start = 0;
 		this.end = 0;
 		this.capacity = capacity;
+		this.dynamic = false;
 		array = (T[]) new Object[capacity];
 	}
 
 	public ArrayList() {
 		this(N);
+		this.dynamic = true;
 	}
 
 	public int size() {
@@ -35,6 +41,7 @@ public class ArrayList<T> {
 	}
 
 	public int find(T data) {
+		++countFind;
 		for (int i = 0; i < this.size(); ++i)
 			if (this.get(i).equals(data))
 				return i;
@@ -91,6 +98,7 @@ public class ArrayList<T> {
 	}
 
 	public void insert(int idx, T data) {
+		++countInsert;
 		if (this.full())
 			throw new RuntimeException("List is full.");
 		else if (idx < 0 || idx > this.size())
@@ -161,6 +169,7 @@ public class ArrayList<T> {
 	}
 
 	public T get(int idx) {
+		++countGet;
 		if (idx < 0 || idx >= this.size())
 			throw new RuntimeException("Index out of range.");
 		return this.array[(this.start + idx) % this.capacity];
@@ -173,6 +182,7 @@ public class ArrayList<T> {
 	}
 
 	public void shrink() {
+		if (!this.dynamic) return;
 		if (this.size() * 100 < this.capacity * 75) return;
 		T[] newArray = (T[]) new Object[this.capacity * 2];
 		for (int i = 0; i < this.size(); ++i)

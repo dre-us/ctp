@@ -1,7 +1,6 @@
 package com.unal.ctp;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.FileReader;
 import java.io.IOException;
 import com.unal.ctp.datastructures.*;
@@ -11,16 +10,17 @@ import java.util.Scanner;
 public class App {
 
 	private ArrayList<Degree> degrees;
-
+	private ArrayList<Pensum> pensums;
+	private Scanner scanner;
 	private App() {
 		degrees = new ArrayList<Degree>();
+		scanner = new Scanner(System.in);
 	}
 
 	public static void main(String[] args) throws IOException {
 		App app = new App();
 		app.input();
-		ArrayList<Pensum> pensums = app.getPensums();
-		System.out.println(pensums.size());
+		app.functionalities();
 	}
 
 	private ArrayList<Pensum> getPensums() {
@@ -29,7 +29,7 @@ public class App {
 
 
 	private void input() throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("data/data.in"));
+		BufferedReader br = new BufferedReader(new FileReader("data/data2.in"));
 		String line;
 		Degree degree = new Degree();
 		degree.setId("2879");
@@ -46,6 +46,7 @@ public class App {
 			}
 			degree.insertCourse(course);
 		}
+		br.close();
 		degree.update();
 		degrees.insertBack(degree);
 	}
@@ -75,7 +76,8 @@ public class App {
 			Course course = explore.top();
 			explore.pop();
 			int j = courses.find(course);
-			if (flags.get(j)) continue;
+			if (j == -1 || flags.get(j)) continue;
+			else flags.set(j, true);
 			Stack<Course> stack = new Stack<Course>();
 			generateStack(course, stack, explore, stacks);
 		}
@@ -94,104 +96,110 @@ public class App {
 		} else {
 			for (int i = 0; i < conditions.size(); ++i) {
 				ArrayList<Course> requirements = conditions.get(i).getCourses();
-				for (int j = 0; j < requirements.size(); ++j) {
+				for (int j = 0; j < requirements.size(); ++j)
 					explore.insert(requirements.get(j));
-					//requirement j shouldnt be pushed if it was already explored
-				}
 			}
+			stacks.insertBack(stack);
 		}
 	}
 
-	private void functionalities(Degree degree){
+	private void functionalities(){
 		System.out.println("Seleccione a continuación que desea hacer");
 		System.out.println("1. Consultar asignatura");
 		System.out.println("2. Creador de mallas");
-		System.out.println("3. Editor de mallas");
-
-		Scanner scanner = new Scanner(System.in);
+		System.out.println("3. Mostrar malla");
+		System.out.println("4. Editor de mallas");
+		System.out.println("5. Salir");
+		Degree degree = degrees.get(0);
 		int choice = scanner.nextInt();
-
-
 		if (choice == 1){
 			System.out.println("Escriba el codigo de la asignatura a buscar");
 			Course courseSearched = new Course(scanner.next());
-			System.out.println(" ");
+			System.out.println();
 			degree.findCourse(courseSearched);
-		}
-		else
+			System.out.println();
+		} else if (choice == 2) {
+			pensums = generatePensums(degree);
+			System.out.println("\nSe generaron " + pensums.size() + " pensums\n");
+		} else if (choice == 3) {
+			System.out.println("Escoja un numero entre 1 y " + pensums.size());
+			int pensum = scanner.nextInt();
+			if (1 <= pensum && pensum <= pensums.size()) {
+				System.out.println();
+				pensums.get(pensum-1).printPensum();
+				System.out.println();
+			}
+		} else if (choice == 4) {
+			System.out.println("\nFuncion aun no disponible\n");
+		} else if (choice == 5) {
+			scanner.close();
+			return;
+		} else {
 			System.out.println("Función aún no disponible");
-		scanner.close();
+		}
+		functionalities();
 
 	}
 
 	private ArrayList<Pensum> generatePensums(Degree degree) {
 		ArrayList<Stack<Course>> stacks = generateStacks(degree);
-		ArrayList<Course> curr_semester = new ArrayList<Course>();
+		ArrayList<Course> curr_semester = new ArrayList<Course>(10);
 		Pensum pensum = new Pensum();
 		ArrayList<Pensum> pensums = new ArrayList<Pensum>();
 		generatePensum(stacks, 0, 1, curr_semester, pensum, pensums);
 		return pensums;
 	}
 
-	private boolean isValidPensum(ArrayList<Stack<Course>> stacks) {
-		boolean flag = true;
-		for (int i = 0; i < stacks.size(); ++i)
-			flag = flag && !stacks.get(i).empty();
-		return flag;
+	private boolean isValidPensum(Pensum pensum) {
+		return pensum.getCourses().size() == 6;
+	}
+
+	private int sumCredits(ArrayList<Course> courses) {
+		int cont = 0;
+		for (int i = 0; i < courses.size(); ++i)
+			cont += courses.get(i).getCredits();
+		return cont;
 	}
 
 	private boolean isValidSemester(ArrayList<Course> courses) {
-		int creditsPerSemester = 0;
-		for (int i = 0; i < courses.size(); ++i)
-			creditsPerSemester += courses.get(i).getCredits();
-		return 10 <= creditsPerSemester && creditsPerSemester <= 20;
+		int creditsPerSemester = sumCredits(courses);
+		return 0 < creditsPerSemester && creditsPerSemester <= 20;
 	}
 
 	private boolean isValidCourse(Course course, ArrayList<Course> semester, Pensum pensum) {
-		boolean validCourse = semester.find(course) == -1 && !pensum.contains(course);
+		boolean validCourse = true;
 		for (int i = 0; i < course.getConditions().size(); ++i)
 			validCourse = validCourse && pensum.contains(course.getConditions().get(i).getCourses().get(0));
-		return validCourse;
+		return validCourse && sumCredits(semester) + course.getCredits() <= 20;
 	}
 
 	private void generatePensum(ArrayList<Stack<Course>> stacks, int i, int semester, ArrayList<Course> curr_semester, Pensum pensum, ArrayList<Pensum> pensums) {
 		if (i == stacks.size()) {
 			if (semester > 20) {
 				return;
-			} else if (this.isValidPensum(stacks)) {
+			} else if (this.isValidPensum(pensum)) {
 				pensums.insertBack(pensum.copy());
-				System.out.println(pensum.cont++);
 			} else if (this.isValidSemester(curr_semester)) {
-				System.out.println("zero");
 				pensum.insertSemester(curr_semester);
-				generatePensum(stacks, 0, semester + 1, new ArrayList<Course>(), pensum, pensums);
+				generatePensum(stacks, 0, semester + 1, new ArrayList<Course>(10), pensum, pensums);
 				pensum.removeBack();
-			} else System.out.println("out");
-		} else {
-			while (i < stacks.size() && stacks.get(i).empty()) ++i;
-			if (i == stacks.size()) {
-				System.out.println("one " + semester);
-				generatePensum(stacks, i, semester, curr_semester, pensum, pensums);
-			} else {
-				Course course = stacks.get(i).top();
-				generatePensum(stacks, i+1, semester, curr_semester, pensum, pensums);
-				if (this.isValidCourse(course, curr_semester, pensum)) {
-					System.out.println("two " + semester);
-					stacks.get(i).pop();
-					curr_semester.insertBack(course);
-					generatePensum(stacks, i+1, semester, curr_semester, pensum, pensums);
-					curr_semester.deleteBack();
-					stacks.get(i).push(course);
-				} else if (curr_semester.find(course) != -1 || pensum.contains(course)) {
-					System.out.println("three " + semester);
-					stacks.get(i).pop();
-					generatePensum(stacks, i, semester, curr_semester, pensum, pensums);
-					stacks.get(i).push(course);
-				} else {
-					System.out.println("four " + semester);
-					generatePensum(stacks, i + 1, semester, curr_semester, pensum, pensums);
-				}
 			}
+		} else if (stacks.get(i).empty()) {
+			generatePensum(stacks, i + 1, semester, curr_semester, pensum, pensums);
+		} else {
+			Course course = stacks.get(i).top();
+			if (curr_semester.find(course) != -1 || pensum.contains(course)) {
+				stacks.get(i).pop();
+				generatePensum(stacks, i, semester, curr_semester, pensum, pensums);
+				stacks.get(i).push(course);
+			} else if (this.isValidCourse(course, curr_semester, pensum)) {
+				stacks.get(i).pop();
+				curr_semester.insertBack(course);
+				generatePensum(stacks, i + 1, semester, curr_semester, pensum, pensums);
+				curr_semester.deleteBack();
+				stacks.get(i).push(course);
+			}
+			generatePensum(stacks, i + 1, semester, curr_semester, pensum, pensums);
 		}
 	}
 }

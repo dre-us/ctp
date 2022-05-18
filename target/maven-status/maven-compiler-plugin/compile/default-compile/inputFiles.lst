@@ -4,6 +4,7 @@
 /home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/model/Course.java
 /home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/model/Degree.java
 /home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/model/Pensum.java
+/home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/model/PensumChild.java
 /home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/datastructures/Tree.java
 /home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/datastructures/LinkedQueue.java
 /home/dreus/Sites/CTP/ctp-app/src/main/java/com/unal/ctp/datastructures/DoublyLinkedList.java
