@@ -29,7 +29,7 @@ public class App {
 
 
 	private void input() throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("data/data2.in"));
+		BufferedReader br = new BufferedReader(new FileReader("data/data3.in"));
 		String line;
 		Degree degree = new Degree();
 		degree.setId("2879");
@@ -151,7 +151,7 @@ public class App {
 	}
 
 	private boolean isValidPensum(Pensum pensum) {
-		return pensum.getCourses().size() == 6;
+		return pensum.getCourses().size() == this.degrees.get(0).getCourses().size();
 	}
 
 	private int sumCredits(ArrayList<Course> courses) {
