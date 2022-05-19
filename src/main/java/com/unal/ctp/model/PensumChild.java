@@ -1,6 +1,6 @@
 package com.unal.ctp.model;
 
-import com.unal.ctp.datastructures.ArrayList;
+import com.unal.ctp.datastructures.*;
 
 public class PensumChild extends Pensum {
 

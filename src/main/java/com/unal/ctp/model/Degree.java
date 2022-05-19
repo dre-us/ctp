@@ -77,7 +77,7 @@ public class Degree {
 			Course searchedCourse = this.courses.get(indexCourse);
 			System.out.println(searchedCourse.toString());
 		}
-		
+
 
 	}
 }

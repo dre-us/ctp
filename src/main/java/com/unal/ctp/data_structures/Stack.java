@@ -10,7 +10,7 @@ public class Stack<T> extends ArrayList<T> {
 		return super.size();
 	}
 
-	public T peek() {
+	public T top() {
 		return super.get(obtainSize() -1);
 	}
 
@@ -27,7 +27,7 @@ public class Stack<T> extends ArrayList<T> {
 
 	public void print(Stack<T> p) {
 		while (!empty()) {
-			System.out.println((p.peek()));
+			System.out.println((p.top()));
 			p.pop();
 		}
 	}
@@ -39,9 +39,9 @@ public class Stack<T> extends ArrayList<T> {
 		stack.push("tres");
 		stack.push("cuatro");
 		System.out.println(stack.obtainSize());
-		System.out.println(stack.peek());
+		System.out.println(stack.top());
 		System.out.println(stack.pop());
-		System.out.println(stack.peek());
+		System.out.println(stack.top());
 		stack.print(stack);
 	}
 }

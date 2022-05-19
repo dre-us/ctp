@@ -6,6 +6,7 @@ import java.io.IOException;
 import com.unal.ctp.datastructures.*;
 import com.unal.ctp.model.*;
 import java.util.Scanner;
+import java.time.*;
 
 public class App {
 
@@ -29,7 +30,7 @@ public class App {
 
 
 	private void input() throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("data/data3.in"));
+		BufferedReader br = new BufferedReader(new FileReader("data/data11.in"));
 		String line;
 		Degree degree = new Degree();
 		degree.setId("2879");
@@ -119,8 +120,10 @@ public class App {
 			degree.findCourse(courseSearched);
 			System.out.println();
 		} else if (choice == 2) {
+			long start = System.currentTimeMillis();
 			pensums = generatePensums(degree);
-			System.out.println("\nSe generaron " + pensums.size() + " pensums\n");
+			long end = System.currentTimeMillis();
+			System.out.println("\nSe generaron " + pensums.size() + " pensums en " + (end-start) + "ms\n");
 		} else if (choice == 3) {
 			System.out.println("Escoja un numero entre 1 y " + pensums.size());
 			int pensum = scanner.nextInt();

@@ -4,6 +4,7 @@ com/unal/ctp/datastructures/LinkedQueue.class
 com/unal/ctp/datastructures/LinkedList$Node.class
 com/unal/ctp/datastructures/ArrayList.class
 com/unal/ctp/datastructures/LinkedStack.class
+com/unal/ctp/d_structures/ArrayList.class
 com/unal/ctp/datastructures/Queue.class
 com/unal/ctp/data_structures/Stack.class
 com/unal/ctp/datastructures/Tree.class

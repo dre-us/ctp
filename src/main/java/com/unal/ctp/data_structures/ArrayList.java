@@ -10,12 +10,21 @@ public class ArrayList<T> {
         capacity = (T[]) new Object[10];
     }
 
+    public ArrayList(int length) {
+	actualSize = 0;
+	capacity = (T[]) new Object[length];
+    }
+
     public T get(int index) {
         if(index < actualSize){
 		return capacity[index];
         } else {
 		throw new ArrayIndexOutOfBoundsException();
         }
+    }
+
+    public T getBack() {
+	return capacity[actualSize - 1];
     }
 
     public void set(int idx, T obj) {
@@ -31,6 +40,13 @@ public class ArrayList<T> {
         }
         capacity[actualSize++] = obj;
 	return true;
+    }
+
+    public void insertBack(T obj) {
+	if(capacity.length-actualSize <= 5) {
+		increaseListSize();
+        }
+        capacity[actualSize++] = obj;
     }
 
     public boolean remove(T obj){
@@ -49,6 +65,10 @@ public class ArrayList<T> {
     }
 
     public void delete(int idx) {
+	actualSize--;
+    }
+
+    public void deleteBack() {
 	actualSize--;
     }
 
