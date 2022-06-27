@@ -1,0 +1,13 @@
+.pensum{
+    /* height: 650px; */
+    min-height: 300px;
+    width: 100vw;
+    margin:20px 0px 5px 0px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+    justify-content: space-around;
+    align-items: stretch;
+    
+}

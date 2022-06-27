@@ -1,0 +1,121 @@
+.course{
+  height: 75px;
+  align-items:stretch;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  border: 2.5px;
+  border-style: solid;
+  border-color:rgb(0, 0, 0);
+}
+
+.course:hover{
+  border: thick solid red;
+}
+
+.course.approved{
+  opacity: 0.6;
+  cursor: default;
+  user-select: none;
+}
+
+.course.approved:hover{
+  border: 2.5px;
+  border-style: solid;
+  border-color:rgb(0, 0, 0);
+}
+
+.credits-options{   
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.credits{
+  height: 25.5px;  
+  width: 25px;
+  margin:0;
+  padding: 0;
+  background-color:rgb(250, 245, 202);
+  border-width: 0px 0px  2.5px 0px;
+  border-style: solid;
+  border-color:rgb(0, 0, 0)
+}
+
+
+.state{
+  height: 23.5px;  
+  width: 25px;
+  margin:0;
+  padding: 0;
+  background-color:rgb(255, 255, 255);
+  border-width: 0px 0px  2.5px 0px;
+  border-style: solid;
+  border-color:rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.search-course{
+  height: 21px;  
+  width: 25px;
+  margin:0;
+  padding: 0;
+  background-color:rgb(255, 255, 255);
+  border-width: 0px 0px 0px 0px;
+  cursor: pointer;
+}
+
+.name-id{
+  width: 125px;
+  border-width: 0 2.5px 0 0;
+  border-style: solid;
+  border-color:rgb(0, 0, 0);
+  margin:0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+
+.id{
+  height: 25.5px;
+  margin:0;
+  padding: 0;
+  background-color:rgb(255, 227, 194);
+  border-width: 0 0  2.5px 0;
+  border-style: solid;
+  border-color:rgb(0, 0, 0)
+}
+
+.background-purple{
+  height: 47px;
+  background-color:rgb(174, 98, 189); 
+  margin:0;
+  padding: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-green{
+  height: 47px;
+  background-color:rgb(88, 175, 110);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-blue{
+  height: 47px;
+  background-color:rgb(106, 170, 182);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

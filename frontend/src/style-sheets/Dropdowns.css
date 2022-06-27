@@ -1,0 +1,9 @@
+.dropdrown {
+  font-size: 10em;
+  width: 50px;
+  background-color: #fff !important;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 20px !important;
+  border: thin solid black !important;   
+}
