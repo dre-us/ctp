@@ -39,7 +39,7 @@ public class CourseService implements ICourseService {
 	private ArrayList<Course> input() {
 		ArrayList<Course> courses = new ArrayList<Course>();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("data/data7.in"));
+			BufferedReader br = new BufferedReader(new FileReader("data/data.in"));
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] dataCourse = line.split("[;] ");

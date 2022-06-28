@@ -24,6 +24,7 @@ public class PensumService implements IPensumService {
 	public PensumService(ICourseService courseService) {
 		this.courseService = courseService;
 		this.courses = courseService.findAll();
+		System.out.println("Se cargaron " + courses.size() + " cursos");
 		this.pensums = generatePensums();
 	}
 
@@ -63,9 +64,6 @@ public class PensumService implements IPensumService {
 		while (!explore.empty()) {
 			Course course = explore.peek();
 			explore.pop();
-			int j = courses.indexOf(course);
-			if (j == -1 || flags.get(j)) continue;
-			else flags.set(j, true);
 			Stack<Course> stack = new Stack<Course>();
 			generateStack(course, stack, explore, stacks, flags);
 		}
@@ -73,6 +71,9 @@ public class PensumService implements IPensumService {
 	}
 
 	private void generateStack(Course course, Stack<Course> stack, Stack<Course> explore, ArrayList<Stack<Course>> stacks, ArrayList<Boolean> flags) {
+		int r = courses.indexOf(course);
+		if (r != -1 && !flags.get(r))
+			flags.set(r, true);
 		stack.push(course);
 		ArrayList<Condition> conditions = course.getConditions();
 		if (conditions.size() == 0) {
@@ -82,16 +83,15 @@ public class PensumService implements IPensumService {
 			Course requirement = conditions.get(0).getCourses().get(0);
 			int i = courses.indexOf(requirement);
 			if (i != -1 && !flags.get(i)) {
-				flags.set(i, true);
 				generateStack(requirement, stack, explore, stacks, flags);
-			}
+			} else stacks.add(stack);
 		} else if (conditions.size() > 1){
 			for (int i = 0; i < conditions.size(); ++i) {
 				ArrayList<Course> requirements = conditions.get(i).getCourses();
 				for (int j = 0; j < requirements.size(); ++j) {
 					int k = courses.indexOf(requirements.get(j));
 					if (k != -1 && !flags.get(k))
-						explore.push(requirements.get(j));
+						explore.push(courses.get(k));
 				}
 			}
 			stacks.add(stack);
@@ -100,6 +100,13 @@ public class PensumService implements IPensumService {
 
 	public ArrayList<PensumDTO> generatePensums() {
 		ArrayList<Stack<Course>> stacks = generateStacks();
+	//for (int i = 0; i < stacks.size(); ++i) {
+	//	System.out.println("Pila " + (i+1) + " ");
+	//		for (int j = 0; j < stacks.get(i).size(); ++j) {
+	//			System.out.print(stacks.get(i).get(j).getName() + ", ");
+	//		}
+	//		System.out.println();
+	//	}
 		ArrayList<Course> curr_semester = new ArrayList<Course>();
 		Pensum pensum = new Pensum();
 		ArrayList<PensumDTO> pensums = new ArrayList<PensumDTO>();
@@ -107,8 +114,8 @@ public class PensumService implements IPensumService {
 		return pensums;
 	}
 
-	private boolean isValidPensum(Pensum pensum) {
-		return pensum.getCourses().size() == courses.size();
+	private boolean isValidPensum(Pensum pensum, ArrayList<Course> curr_semester) {
+		return pensum.getCourses().size() + curr_semester.size() == courses.size();
 	}
 
 	private int sumCredits(ArrayList<Course> courses) {
@@ -120,7 +127,7 @@ public class PensumService implements IPensumService {
 
 	private boolean isValidSemester(ArrayList<Course> semester) {
 		int creditsPerSemester = sumCredits(semester);
-		return 0 < creditsPerSemester && creditsPerSemester <= 20;
+		return 15 <= creditsPerSemester && creditsPerSemester <= 20;
 	}
 
 	private boolean isValidCourse(Course course, ArrayList<Course> semester, Pensum pensum) {
@@ -131,14 +138,21 @@ public class PensumService implements IPensumService {
 	}
 
 	private void generatePensum(ArrayList<Stack<Course>> stacks, int i, int semester, ArrayList<Course> curr_semester, Pensum pensum, ArrayList<PensumDTO> pensums) {
+		pensum.printPensum();
+		for (int j = 0; j < curr_semester.size(); ++j)
+			System.out.print(curr_semester.get(j).getName() + " ");
+		System.out.println();
 		if (i == stacks.size()) {
 			//no hay mas pilas de donde sacar materias
-			if (semester > 20) {
+			if (semester > 10) {
 				//parar recursion, se excedio el limite de semestres
 				return;
-			} else if (this.isValidPensum(pensum)) {
+			} else if (this.isValidPensum(pensum, curr_semester)) {
 				//guardar el pensum valido y parar la recursion
+				System.out.println("Pensum valido.");
+				pensum.insertSemester(curr_semester);
 				pensums.add(pensum.getDTO());
+				pensum.removeBack();
 			} else if (this.isValidSemester(curr_semester)) {
 				//agregar el semestre valido al pensum que se esta creando
 				pensum.insertSemester(curr_semester);
@@ -148,14 +162,14 @@ public class PensumService implements IPensumService {
 			}
 		} else if (stacks.get(i).empty()) {
 			//la pila actual no tiene cursos, se inicia nueva recursion saltando la pila actual
-			generatePensum(stacks, i + 1, semester, curr_semester, pensum, pensums);
+			while (i < stacks.size() && stacks.get(i).empty()) ++i;
+			generatePensum(stacks, i, semester, curr_semester, pensum, pensums);
 		} else {
 			Course course = stacks.get(i).peek();
 			if (curr_semester.indexOf(course) != -1 || pensum.contains(course)) {
 				//eliminar el curso que esta en el top de la pila actual porque ya esta en el semestre o pensum que se esta construyendo
 				stacks.get(i).pop();
 				generatePensum(stacks, i, semester, curr_semester, pensum, pensums);
-				stacks.get(i).push(course);
 			} else if (this.isValidCourse(course, curr_semester, pensum)) {
 				//si el curso es valido para agregar, se agrega y se abre una nueva recursion saltando la pila actual
 				//nota: para un mismo semestre no se pueden sacar dos cursos de una misma pila

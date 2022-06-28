@@ -32,7 +32,7 @@ public class Stack<T> {
 
 	public T peek() {
 		if (size == 0)
-			throw new RuntimeException("Stack empty");
+			throw new RuntimeException("Stack empty.");
 		return arr[size-1];
 	}
 
@@ -42,6 +42,12 @@ public class Stack<T> {
 
 	public int size() {
 		return size;
+	}
+
+	public T get(int idx) {
+		if (idx < 0 || idx >= size)
+			throw new RuntimeException("Index out of range.");
+		return arr[idx];
 	}
 
 	private void shrink() {

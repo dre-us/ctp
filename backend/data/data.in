@@ -1,4 +1,4 @@
-1000004; calculo diferencial; 4; NO; B; [1000001]
+1000004; calculo diferencial; 4; NO; B; []
 1000005; calculo integral; 4; NO; B; [1000004]
 1000006; calculo en varias variables; 4; NO; B; [1000005]
 1000003; algebra lineal; 4; NO; B; [1000004]
@@ -9,7 +9,6 @@
 2016696; algoritmos; 3; SI; B; [2016699, 2025963]
 2025963; matematicas discretas i; 4; NO; B; [1000003]
 2025964; matematicas discretas ii; 4; NO; B; [2025963]
-2015970; metodos numericos; 3; NO; B; [1000006]
 2015703; ingenieria economica; 3; NO; B; [1000005]
 2015702; gerencia y gestion de proyectos; 3; NO; B; [2015703]
 2015970; metodos numericos; 3; NO; B; [1000006]

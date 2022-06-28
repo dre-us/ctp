@@ -22,6 +22,6 @@ public class PensumController {
 
 	@GetMapping(value = "/pensum/{num}")
 	public PensumDTO getPensum(@PathVariable Integer num) {
-		return pensumService.find(num);
+		return pensumService.find(num-1);
 	}
 }
