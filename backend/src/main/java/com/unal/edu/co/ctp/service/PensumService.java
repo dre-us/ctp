@@ -127,7 +127,7 @@ public class PensumService implements IPensumService {
 
 	private boolean isValidSemester(ArrayList<Course> semester) {
 		int creditsPerSemester = sumCredits(semester);
-		return 15 <= creditsPerSemester && creditsPerSemester <= 20;
+		return 0 < creditsPerSemester && creditsPerSemester <= 20;
 	}
 
 	private boolean isValidCourse(Course course, ArrayList<Course> semester, Pensum pensum) {
