@@ -5,5 +5,10 @@
 
 html,
 body{
-  background-color: #fff; 
+  background-color: #fff;
+}
+
+body.Main {
+  width: 100%;
+  display: block;
 }
