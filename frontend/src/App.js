@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Pensum from './components/Pensum';
 
 function App() {
-  
+
   return (
     <div className="App">
       <Header />
