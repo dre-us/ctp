@@ -16,10 +16,10 @@ function Pensum() {
     component: 'Fundamentacion',
     approved:false
   }, {
-    id: '2016703', 
-    name: 'Pensamiento sistémico', 
-    credits: '3', 
-    component: 'Profesional o disciplinar', 
+    id: '2016703',
+    name: 'Pensamiento sistémico',
+    credits: '3',
+    component: 'Profesional o disciplinar',
     approved:false,
   }, {
     id:'2025975',
@@ -60,18 +60,18 @@ function Pensum() {
       component:'Profesional o disciplinar',
       approved:false
   }, {
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   }]
 
   const materiaS3P1= [{
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   }, {
       id:'1000017',
@@ -82,7 +82,7 @@ function Pensum() {
   },  {
       id:'1000006',
       name:'Cálculo en varias variables',
-      credits:4, 
+      credits:4,
       component:'Fundamentacion',
       approved:false
   },  {
@@ -118,10 +118,10 @@ function Pensum() {
       component:'Profesional o disciplinar',
       approved:false
   },  {
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   },  {
       id:'2025964',
@@ -156,10 +156,10 @@ function Pensum() {
       component:'Fundamentacion',
       approved:false
   },  {
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   },  {
       id:'2025967',
@@ -171,7 +171,7 @@ function Pensum() {
       id:'2016701',
       name:'Ingeniería de software i',
       credits:3,
-      component:'Profesional o disciplinar', 
+      component:'Profesional o disciplinar',
       approved:false
   },  {
       id:'2015174',
@@ -194,10 +194,10 @@ function Pensum() {
       component:'Profesional o disciplinar',
       approved:false
   },  {
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   },  {
       id:'2016702',
@@ -234,7 +234,7 @@ function Pensum() {
   },  {
       id:'2025983',
       name:'Arquitectura de infraestructura y gobierno de tics',
-      credits:3, 
+      credits:3,
       component:'Profesional o disciplinar',
       approved:false
   },  {
@@ -258,10 +258,10 @@ function Pensum() {
       component:'Fundamentacion',
       approved:false
   },  {
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   },  {
       id:'2025966',
@@ -278,10 +278,10 @@ function Pensum() {
       component:'Profesional o disciplinar',
       approved:false
   },  {
-      id: '0000000', 
-      name: 'Libre elección', 
-      credits: '3', 
-      component: 'Libre eleccion', 
+      id: '0000000',
+      name: 'Libre elección',
+      credits: '3',
+      component: 'Libre eleccion',
       approved:false
   },  {
       id:'2025960',
@@ -298,10 +298,10 @@ function Pensum() {
   }]
 
   const materiaS2P2= [{
-    id: '0000000', 
-    name: 'Libre elección', 
-    credits: '3', 
-    component: 'Libre eleccion', 
+    id: '0000000',
+    name: 'Libre elección',
+    credits: '3',
+    component: 'Libre eleccion',
     approved:false
     }, {
         id:'1000005',
@@ -316,18 +316,18 @@ function Pensum() {
         component:'Fundamentacion',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     }]
 
     const materiaS3P2= [{
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     },{
         id:'2016375',
@@ -344,7 +344,7 @@ function Pensum() {
     }, {
         id:'1000006',
         name:'Cálculo en varias variables',
-        credits:4, 
+        credits:4,
         component:'Fundamentacion',
         approved:false
     },  {
@@ -374,10 +374,10 @@ function Pensum() {
         component:'Profesional o disciplinar',
         approved:false
     },{
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     }]
 
@@ -420,10 +420,10 @@ function Pensum() {
         component:'Fundamentacion',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     },  {
         id:'2025967',
@@ -435,21 +435,21 @@ function Pensum() {
         id:'2016701',
         name:'Ingeniería de software i',
         credits:3,
-        component:'Profesional o disciplinar', 
+        component:'Profesional o disciplinar',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     }]
 
     const materiaS7P2= [{
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     },  {
         id:'2015174',
@@ -464,10 +464,10 @@ function Pensum() {
         component:'Profesional o disciplinar',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     },  {
         id:'2016702',
@@ -490,10 +490,10 @@ function Pensum() {
         component:'Fundamentacion',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     },  {
         id:'2025966',
@@ -539,7 +539,7 @@ function Pensum() {
     },  {
         id:'2025983',
         name:'Arquitectura de infraestructura y gobierno de tics',
-        credits:3, 
+        credits:3,
         component:'Profesional o disciplinar',
         approved:false
     },  {
@@ -549,10 +549,10 @@ function Pensum() {
         component:'Profesional o disciplinar',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     }]
 
@@ -575,12 +575,12 @@ function Pensum() {
         component:'Profesional o disciplinar',
         approved:false
     }]
-    
+
     const materiaS12P2=[{
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     }, {
         id:'2025960',
@@ -589,52 +589,42 @@ function Pensum() {
         component:'Profesional o disciplinar',
         approved:false
     },  {
-        id: '0000000', 
-        name: 'Libre elección', 
-        credits: '3', 
-        component: 'Libre eleccion', 
+        id: '0000000',
+        name: 'Libre elección',
+        credits: '3',
+        component: 'Libre eleccion',
         approved:false
     }]
-  
-  let pensums = { 
-    // 'semesters' : 4,
+
+  let pensums = {
     'pensum1' : [ materiaS1, materiaS2P2, materiaS3P2, materiaS4P2, materiaS5P2, materiaS6P2, materiaS7P2, materiaS8P2, materiaS9P2, materiaS10P2, materiaS11P2, materiaS12P2],
     'pensum2' : [ materiaS1, materiaS2P1, materiaS3P1, materiaS4P1, materiaS5P1, materiaS6P1, materiaS7P1, materiaS8P1, materiaS9P1]
-    
   }
 
-  //let semester = semester2['pensum'];
-
-  
   const[semester, setSemester] = useState(pensums['pensum2']);
   /*
    useEffect(()=>{
     Axios({
       url: `http://localhost:8080/pensum/1`,
-    }) 
+    })
       .then((response)=>{
         //console.log(response.data['pensum']);
         setSemester(response.data['pensum']);
-      }) 
+      })
       .catch((error)=>{
         console.log(error);
       });
   }, [setSemester]);
-  
-  //console.log(semester);
 */
   return(
 
     <div className='pensum'>
 
       {semester.map(function(object, i){
-        
         return <Semester courses={object} nSemester={i} />
-      })}  
-      
+      })}
     </div>
   );
-
 }
 
 export default Pensum;

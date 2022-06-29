@@ -4,7 +4,7 @@ import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
 import'../style-sheets/Header.css';
-import Dropdowns from "./Dropdrowns"; 
+import Dropdowns from "./Dropdrowns";
 import Search from './Search';
 
 <head>
@@ -17,7 +17,7 @@ function Header(){
 
   return(
     <div className='header-container'>
-      <img 
+      <img
         className='unal-logo'
         src={require('../images/logo-unal.png')}
         alt='Logo Universidad Nacional' />
@@ -30,26 +30,22 @@ function Header(){
           <Dropdowns type='Facultad' option='Ingeniería'/>
           <Dropdowns type='Carrera' option='Ing. de Sistemas'/>
         </div>
-      </div> 
+      </div>
       <div className='header-icons'>
         <ion-button >
           <BsFillArrowRightSquareFill className='next-pensum' />
-          
         </ion-button>
-
         <Tooltip
           title={contentInfo}
-          position='bottom' 
+          position='bottom'
           arrow='false' >
             <ion-button >
               <BsFillQuestionCircleFill className='info-app' />
             </ion-button>
         </Tooltip>
-        
-      </div>  
-      <Search className='search-container' />   
+      </div>
+      <Search className='search-container'/>
     </div>
   );
 }
-
 export default Header;

@@ -21,7 +21,6 @@ export default function CourseInfo({course}) {
           {course.component}
         </Typography>
         <Typography variant="body2">
-          
           <br />
         </Typography>
       </CardContent>

@@ -14,12 +14,11 @@ function Course({id, name, credits, component, completed}){
   if (component === 'Profesional o disciplinar') isComponentC = true;
 
   const [approved, setApproved] = useState(false);
-  // if(completed === 'true') approved = true;
 
   return(
     <div className={approved ? 'course approved':'course'}>
       <div className='name-id'>
-        <div className='id'><center>{id}</center></div> 
+        <div className='id'><center>{id}</center></div>
         <div className={isComponentB ? 'background-purple': isComponentC ? 'background-green':'background-blue'}><center>{name}</center></div>
       </div>
       <div className='credits-options'>
@@ -27,10 +26,10 @@ function Course({id, name, credits, component, completed}){
         <button className='state' onClick={() => approved ? setApproved(false) : setApproved(true)}>
           {approved ? <TbLock className='approved-icon'/> : <TbLockOpen className='no-approved-icon'/> }
         </button>
-        <button className='search-course'>    
+        <button className='search-course'>
           <FaSearch className='search-course-icon'/>
         </button>
-      </div>       
+      </div>
     </div>
   );
 }

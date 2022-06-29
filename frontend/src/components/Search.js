@@ -55,13 +55,11 @@ function Search() {
     const handleChange = e => {
         setText(e.target.value);
     }
-    const handleChangeCourse = () => {
-        let newCourse = course; 
-
+    const handleChangeCourse = (e) => {
+        let newCourse = course;
         for (let i=0; i<courses.length; i++){
             if(courses[i].id.toString()===textSearch){
                 newCourse = courses[i];
-                console.log('hola')
             }
         }
 
@@ -81,9 +79,8 @@ function Search() {
                     variant="outlined"
                     onChange={handleChange}
                 />
-
-                <IconButton sx={{p: '10px'}} arial-label="search" onClick={() => handleChangeCourse}>
-                    <SearchIcon/> 
+                <IconButton sx={{p: '10px'}} arial-label="search" onClick={(e) => handleChangeCourse(e)}>
+                    <SearchIcon/>
                 </IconButton>
             </Paper>
                 <CourseInfo course={course}/>

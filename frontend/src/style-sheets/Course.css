@@ -27,7 +27,7 @@
   border-color:rgb(0, 0, 0);
 }
 
-.credits-options{   
+.credits-options{
   width: 25px;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
 }
 
 .credits{
-  height: 25.5px;  
+  height: 25.5px;
   width: 25px;
   margin:0;
   padding: 0;
@@ -48,7 +48,7 @@
 
 
 .state{
-  height: 23.5px;  
+  height: 23.5px;
   width: 25px;
   margin:0;
   padding: 0;
@@ -60,7 +60,7 @@
 }
 
 .search-course{
-  height: 21px;  
+  height: 21px;
   width: 25px;
   margin:0;
   padding: 0;
@@ -95,9 +95,9 @@
 
 .background-purple{
   height: 47px;
-  background-color:rgb(174, 98, 189); 
+  background-color:rgb(174, 98, 189);
   margin:0;
-  padding: 0; 
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;

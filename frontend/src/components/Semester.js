@@ -20,7 +20,7 @@ function Semester({courses, nSemester}){
         <h3><center>{nSemester+1}</center></h3>
       </div>
 
-      <div className='courses'>        
+      <div className='courses'>
         {courses.map(function(object, i){
           if(object.component==='Libre eleccion') creditsFreePerSemester+=parseInt(object.credits);
           else creditsRequiredPerSemester+=parseInt(object.credits);
@@ -37,25 +37,23 @@ function Semester({courses, nSemester}){
 
       <IconContext.Provider value={{ color: 'red'}} >
         <div>
-          <center>{creditsFreePerSemester+creditsRequiredPerSemester>20 ? 
+          <center>{creditsFreePerSemester+creditsRequiredPerSemester>20 ?
           <Tooltip
             title={textMaxCreditsExceeded}
-            position='bottom' 
+            position='bottom'
             arrow='false' >
               <RiErrorWarningFill className='credits-warning'/>
-          </Tooltip> 
+          </Tooltip>
           : creditsFreePerSemester+creditsRequiredPerSemester<10 ?
           <Tooltip
             title={textMinCreditsRequired}
-            position='bottom' 
+            position='bottom'
             arrow='false' >
               <RiErrorWarningFill className='credits-warning'/>
           </Tooltip>
           : null} </center>
         </div>
       </IconContext.Provider>
-      
-
     </div>
   );
 }
