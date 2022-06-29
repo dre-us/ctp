@@ -13,9 +13,7 @@ function App() {
     <div className="App">
       <Header />
       <hr size="2px" color="black" />
-      <div className="Main">
-        <Pensum />
-      </div>
+      <Pensum />
     </div>
   );
 }

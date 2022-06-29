@@ -101,6 +101,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.7vw;
+  overflow: hidden;
 }
 
 .background-green{
@@ -109,6 +111,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.7vw;
+  overflow: hidden;
 }
 
 .background-blue{
@@ -117,5 +121,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.7vw;
+  overflow: hidden;
 }
 
