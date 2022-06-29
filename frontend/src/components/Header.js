@@ -5,7 +5,8 @@ import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
 import'../style-sheets/Header.css';
-import Dropdowns from "./Dropdrowns";
+import Dropdowns from "./Dropdrowns"; 
+import Search from './Search';
 
 function Header(){
 
@@ -44,10 +45,10 @@ function Header(){
               <BsFillQuestionCircleFill className='info-app' />
             </ion-button>
         </Tooltip>
+        <Search />
       </div>     
     </div>
   );
-
 }
 
 export default Header;

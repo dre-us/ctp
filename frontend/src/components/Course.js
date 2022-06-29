@@ -11,7 +11,7 @@ function Course({id, name, credits, component, completed}){
   if (component === 'Fundamentacion') isComponentB = true;
 
   var isComponentC = false;
-  if (component === 'profesional o disciplinar') isComponentC = true;
+  if (component === 'Profesional o disciplinar') isComponentC = true;
 
   const [approved, setApproved] = useState(false);
   // if(completed === 'true') approved = true;

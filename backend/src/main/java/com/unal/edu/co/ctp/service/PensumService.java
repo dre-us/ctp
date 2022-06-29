@@ -25,7 +25,8 @@ public class PensumService implements IPensumService {
 		this.courseService = courseService;
 		this.courses = courseService.findAll();
 		System.out.println("Se cargaron " + courses.size() + " cursos");
-		this.pensums = generatePensums();
+		this.pensums = new ArrayList<PensumDTO>();
+		//this.pensums = generatePensums();
 	}
 
 	@Override
